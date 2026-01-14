@@ -138,3 +138,105 @@ p.colored {
 p.another {
   background-color: $my-color;
 }
+
+// 6) MIXIN
+// un "mixin" in SASS è un BLOCCO di regole/proprietà CSS a cui date un nome
+
+@mixin centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin bordered {
+  border: $special-border;
+  border-radius: 20px;
+}
+
+#img-container {
+  margin-left: $main-margin;
+  margin-right: $main-margin;
+  @include bordered;
+  @include centered;
+}
+
+// ...quindi un mixin ricorda vagamente come concetto quello di una "funzione" in JS:
+// in un colpo solo riporta molteplici regole CSS
+// e, come in JS, anche in SASS i mixin possono accettare PARAMETRI
+
+@mixin custom-bordered($radius: 20px) {
+  border: $special-border;
+  border-radius: $radius;
+}
+
+.big-border {
+  @include custom-bordered(30px);
+}
+
+.small-border {
+  @include custom-bordered(10px);
+}
+
+.unknown-border {
+  @include custom-bordered; // prenderà in automatico 20px come valore di default
+}
+
+// 7) INTERPOLAZIONE DI STRINGHE & VALORI
+
+// in JS...
+// const a = 'size'
+// const name = 'font-' + a // 'font-size'
+// const name2 = `font-${a}` // 'font-size'
+
+// in SASS...
+$a: 'size';
+.test {
+  font-#{$a}: 16px; // font-size: 16px
+}
+
+// 8) C  I  C  L  I
+// in SASS è possibile utilizzare i CICLI per AUTOMATIZZARE la creazione di stili "in serie"
+
+// creiamo una LISTA
+$sizes: 12px, 16px, 20px, 24px;
+// const sizes: ['12px', '16px', ecc.]
+
+// il mio scopo è creare 4 classi CSS in cui in ognuna sarà presente una font-size
+// con un valore diverso (tipo i fs-1, fs-2, fs-3 etc. di bootstrap)
+
+// in JS forEach è un metodo degli array che cicla l'array e vi espone di volta in volta
+// uno degli elementi, a cui potete dare un nome (il nome del parametro, io ho scelto "size")
+// sizes.forEach(size => {})
+
+// in SASS la sintassi è simile, $size è il nome del singolo elemento di $sizes e l'ho
+// inventato io
+@each $size in $sizes {
+  // alla prima iterazione del ciclo, $size vale 12px
+  // alla seconda iterazione del ciclo, $size vale 16px
+  // alla terza iterazione del ciclo, $size vale 20px
+  // alla quarta iterazione del ciclo, $size vale 24px
+  .text-#{$size} {
+    font-size: $size;
+  }
+}
+
+// però così facendo creiamo classi chiamate ".text-12px", che vanno bene ma non sono il massimo
+// come creiamo ad esempio un ".text-sm", ".text-md" etc.?
+// al momento siamo limitati dal fatto che stiamo ciclando una LISTA (un array)...
+// ...proviamo a ciclare UNA MAPPA (un oggetto)!
+
+$sizes-map: (
+  sm: 12px,
+  md: 16px,
+  xl: 20px,
+  xxl: 24px,
+);
+
+@each $name, $value in $sizes-map {
+  // $name vale sm, md, xl, xxl
+  // $value vale 12px, 16px, 20px, 24px
+
+  .text-#{$name} {
+    font-size: $value;
+  }
+}

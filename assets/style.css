@@ -52,4 +52,65 @@ p.colored {
 
 p.another {
   background-color: green;
+}
+
+#img-container {
+  margin-left: 1.2em;
+  margin-right: 1.2em;
+  border: 3px dotted red;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.big-border {
+  border: 3px dotted red;
+  border-radius: 30px;
+}
+
+.small-border {
+  border: 3px dotted red;
+  border-radius: 10px;
+}
+
+.unknown-border {
+  border: 3px dotted red;
+  border-radius: 20px;
+}
+
+.test {
+  font-size: 16px;
+}
+
+.text-12px {
+  font-size: 12px;
+}
+
+.text-16px {
+  font-size: 16px;
+}
+
+.text-20px {
+  font-size: 20px;
+}
+
+.text-24px {
+  font-size: 24px;
+}
+
+.text-sm {
+  font-size: 12px;
+}
+
+.text-md {
+  font-size: 16px;
+}
+
+.text-xl {
+  font-size: 20px;
+}
+
+.text-xxl {
+  font-size: 24px;
 }/*# sourceMappingURL=style.css.map */
