@@ -1,0 +1,9 @@
+// qui ad es. potrei metterci gli stili per la sezione <main></main>
+
+section {
+  margin: 1em 0;
+}
+
+.btn {
+  @include btn;
+}

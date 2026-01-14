@@ -1,0 +1,27 @@
+// in questo file app.scss io NON dichiarerò nessuno stile
+// questo file servirà solamente per FONDERE INSIEME i contenuti di tutti i miei partials
+
+// nella cartella "partials" io includerò tanti mini-file con dentro un particolare tipo
+// di contenuto; ecco i più comuni:
+// - reset
+// - variabili
+// - mixins
+// - animations
+// - header, main, footer etc.
+
+// Un file PARTIAL è un documento .scss con il nome che comincia per _ (underscore)
+// es. _reset.scss, _variables.scss, _animations.scss
+// perchè? perchè i file scss che cominciano per _ vengono IGNORATI dal SASS compiler!
+// è giusto che sia così, perchè non vi interessa il compilato di un partial...
+// i partials sono file "parziali" che nascono per essere inglobati in un foglio scss
+// come questo, che NON avendo l'underscore nel nome verrà normalmente compilato
+// con app.css e app.css.map
+
+@import './partials/reset'; // il nome del file NON DEVE avere l'underscore e NON DEVE avere l'estensione
+// l'ordine in cui inserite gli import dei partials determina come il file compilato
+// ingloberà i vari "blocchi" (cioè i contenuti dei vari partials)
+@import './partials/variables';
+@import './partials/mixins';
+@import './partials/loops';
+@import './partials/header';
+@import './partials/main';

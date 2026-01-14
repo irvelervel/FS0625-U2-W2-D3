@@ -240,3 +240,11 @@ $sizes-map: (
     font-size: $value;
   }
 }
+
+// 9) PARTIALS
+// SASS ci permette di distribuire in modo molto efficace e mantenibile i nostri
+// stili su TANTI diversi files: ad es. è possibile creare uno solo per le variabili,
+// i mixins, il foglio di reset, stili x header, stili x footer, etc.
+// questi piccoli file separati in SASS prendono il nome di PARTIALS
+
+// -> andiamo su un nuovo file, app.scss
