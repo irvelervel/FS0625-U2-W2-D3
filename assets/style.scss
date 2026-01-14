@@ -1,0 +1,56 @@
+// ora che la toolchain è pronta
+// (scss -> css -> link in HTML -> live server)
+// possiamo esplorare tutte le caratteristiche di SASS
+// 1) SASS è 100% RETROCOMPATIBILE CON CSS
+// i commenti in SCSS si fanno come in JS
+// proviamo ad azzerare i margini sul body
+body,
+h1 {
+  margin: 0;
+}
+
+// 2) SELETTORI ANNIDATI / NIDIFICATI (nested)
+// nav {
+//   display: block;
+//   width: 100%;
+// }
+
+// nav ul {
+//   display: flex;
+//   flex-direction: column;
+//   margin: 0;
+//   padding: 0;
+//   list-style-type: none;
+//   text-align: center;
+// }
+
+// nav ul li {
+//   font-family: Arial, Helvetica, sans-serif;
+// }
+
+// nav ul li a {
+//   color: black;
+//   text-decoration: none;
+// }
+
+nav {
+  display: block;
+  width: 100%;
+  ul {
+    // -> nav ul
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+    li {
+      // --> nav ul li
+      font-family: Arial, Helvetica, sans-serif;
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+}
