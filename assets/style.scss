@@ -54,3 +54,87 @@ nav {
     }
   }
 }
+
+// 3) PSEUDOCLASSI IN SASS (es. hover, active, etc.)
+
+// .primary {
+//   background-color: purple;
+//   color: white;
+//   padding: 0.5em 1em;
+//   border-radius: 20px;
+// }
+
+// .primary:hover {
+//   background-color: white;
+//   color: purple;
+// }
+
+.primary {
+  background-color: purple;
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 20px;
+  &:hover {
+    // & vuole dire "selettore corrente", .primary
+    background-color: white;
+    color: purple;
+  }
+}
+
+// 4) PREFISSI COMUNI PER PROPRIETÀ SIMILI
+// p.pacchiano {
+//   font-size: 1.2em;
+//   font-weight: bold;
+//   font-style: italic;
+//   font-family: Arial, Helvetica, sans-serif;
+// }
+
+p.pacchiano {
+  font: {
+    size: 1.2em;
+    weight: bold;
+    style: italic;
+    family: Arial, Helvetica, sans-serif;
+  }
+
+  border: {
+    width: 2px;
+    style: dashed;
+    color: black;
+    radius: 20px;
+  }
+}
+
+// ---- finite le semplici migliorie stilistiche
+// cominciano con la sezione FUNZIONALITÀ
+
+// 5) VARIABILI
+// Le variabili in SASS sono dei contenitori per memorizzare valori.
+// In SASS le variabili si associano a livello di significato più alle COSTANTI (è raro
+// che una variabile SASS cambi valore).
+
+// quali sono i TIPI DI DATO in SASS?
+// - valori numerici (0, 100, 10px, 2em, 1rem etc.)
+// - stringhe ('2px solid black', '0 auto', etc.)
+// - colori (red, #b9b9b9, rgb(10, 200, 50), hsl(233, 81.8%, 43.1%))
+// - booleani (true, false)
+// - null
+// - LISTE (10px, 16px, 24px) -> un po' come gli ARRAY in JS
+// - MAPPE di coppie chiave:valore -> un po' come gli OGGETTI in JS
+
+// come si dichiara una VARIABILE in SASS?
+// in JS si segue la nomenclatura camelCase -> nomeVariabile
+// in SASS si segue la nomenclatura kebab-case -> nome-variabile
+
+$my-color: green;
+$main-margin: 1.2em;
+$special-border: 3px dotted red;
+
+p.colored {
+  color: $my-color;
+  border: $special-border;
+}
+
+p.another {
+  background-color: $my-color;
+}
